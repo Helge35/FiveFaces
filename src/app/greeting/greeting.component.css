@@ -1,0 +1,11 @@
+.view {
+    animation-name: example;
+    animation-duration: 1;
+    animation-timing-function: ease-in;
+   animation-fill-mode: forwards;
+}
+@keyframes example {
+    from { transform: translate(-100, 0); }
+    to { transform: translate(0, 0); }
+}
+

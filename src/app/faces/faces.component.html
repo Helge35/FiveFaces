@@ -1,0 +1,9 @@
+
+
+
+<ActionBar title="{N} Couchbase Photos" >
+    <ActionItem text="Capture" ios.position="right" (tap)="capture()"></ActionItem>
+</ActionBar>
+<StackLayout>
+    <Image *ngFor="let image of images" [src]="image"></Image>
+</StackLayout>
