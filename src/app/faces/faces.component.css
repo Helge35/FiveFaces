@@ -1,1 +1,12 @@
 /* Add mobile styles for the component here.  */
+    .faces-list{
+        background-color: #dbf7e9;
+        text-align : left ;
+    }
+
+    .preview-image{
+        height: 80;
+        width: 80;
+    }
+
+  

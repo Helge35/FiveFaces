@@ -1,9 +1,40 @@
+<ScrollView>
+	<GridLayout rows="250, auto, *" style="margin-top: 100;">
+		<CameraPlus height="250" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
+			showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
+			(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
+			(imagesSelectedEvent)="imagesSelectedEvent($event)">
+
+			<!-- OVERLAY CONTENT -->
+			<!--ridLayout rows="*, auto, *" columns="*, auto, *">
+				<GridLayout colSpan="3" class="bg-overlay"></GridLayout>
+				<GridLayout row="1" class="bg-overlay"></GridLayout>
+				<GridLayout row="1" col="2" class="bg-overlay"></GridLayout>
+				<GridLayout row="2" colSpan="3" class="bg-overlay"></GridLayout>
+				<Label row="1" col="1" class="overlay-label" text="📷➕"></Label>
+				<Image src="https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/nativescript.png" row="1" col="1" stretch="aspectFill"
+				    class="overlay" width="20" height="20"></Image>
+				<Image src="res://nativescript" row="1" col="1" stretch="aspectFill" class="overlay"></Image>
+			</GridLayout-->
+		</CameraPlus>
 
 
+		<ListView row="1" [items]="faces" (itemTap)="onItemTap($event)" class="list-group" style="height: 200; width: 300;margin-top: 20;">
+			<ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+				<StackLayout class="faces-list" orientation="horizontal">
+					<Label [text]="item.id" class="scroll-pane"></Label>
+					<Image row="1" col="1" class="preview-image" stretch="none" [src]="item.imageSrc"></Image>
+					<Button text="X" (tap)="deleteFace(item.id)" ></Button>
+				</StackLayout>
+			</ng-template>
+		</ListView>
 
-<ActionBar title="{N} Couchbase Photos" >
-    <ActionItem text="Capture" ios.position="right" (tap)="capture()"></ActionItem>
-</ActionBar>
-<StackLayout>
-    <Image *ngFor="let image of images" [src]="image"></Image>
-</StackLayout>
+		<GridLayout row="2" rows="auto, auto, auto, auto" columns="*, *">
+			<Button text="Take Pic" (tap)="takePicFromCam()" row="1" col="0" class="btn btn-primary"></Button>
+			<Button text="Toggle Flash" (tap)="toggleFlashOnCam()" row="1" col="1" class="btn btn-primary"></Button>
+			<Button text="Toggle Camera" (tap)="toggleTheCamera()" row="2" col="0" class="btn btn-primary"></Button>
+
+			<Button text="GO" (tap)="create()" row="2" col="1" class="btn btn-primary"></Button>
+		</GridLayout>
+	</GridLayout>
+</ScrollView>

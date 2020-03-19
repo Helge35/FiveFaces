@@ -3,10 +3,9 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
 import { GreetingComponent } from './greeting/greeting.component';
 import { FacesComponent } from './faces/faces.component';
+import { ResultComponent } from './result/result.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -24,10 +23,9 @@ import { FacesComponent } from './faces/faces.component';
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent,
         GreetingComponent,
-        FacesComponent
+        FacesComponent,
+        ResultComponent
     ],
     providers: [],
     schemas: [
