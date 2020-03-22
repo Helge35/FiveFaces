@@ -38,15 +38,28 @@ export class FacesService {
             photosSlices.push(new FacePool(singleImgRes));
         }
 
+        let usedRnd: Array<number> = [];
         for (let x = 0; x < sliceNum; x++) {
-            let rnd = Math.floor(Math.random() * sliceNum);
-            res.push(new Face(x, photosSlices[rnd].imageSrc[x]));
+            let randomInd: number;
+
+            randomInd = this.getRandomIndex(sliceNum, usedRnd);
+            usedRnd.push(randomInd);
+
+            res.push(new Face(x, photosSlices[randomInd].imageSrc[x]));
         }
 
         return res;
     }
 
-    cropImage(image: ImageSource, sliceCount: number, index: number): ImageSource {
+    private getRandomIndex(sliceNum: number, usedRnd: Array<number>): number {
+        let rnd = Math.floor(Math.random() * sliceNum);
+        if (usedRnd.indexOf(rnd) >= 0) {
+            return this.getRandomIndex(sliceNum, usedRnd);
+        }
+        return rnd;
+    }
+
+    private cropImage(image: ImageSource, sliceCount: number, index: number): ImageSource {
         let mutable = BitmapFactory.makeMutable(image);
         return BitmapFactory.asBitmap(mutable).dispose((bmp) => {
 
