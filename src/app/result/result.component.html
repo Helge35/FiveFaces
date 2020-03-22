@@ -1,3 +1,11 @@
-<Button text="Back" (tap)="backToFaces()"  class="btn btn-primary"></Button>
+<Button text="Back" (tap)="backToFaces()"  class="btn btn-primary" ></Button>
 
-<Image class="preview-image" stretch="none" [src]="face.imageSrc"></Image>
+<!--Image class="preview-image" stretch="none" [src]="face.imageSrc"></Image-->
+
+<ListView row="1" [items]="faces" (itemTap)="onItemTap($event)"  >
+    <ng-template let-item="item" let-i="index">
+        <StackLayout class="faces-list" orientation="horizontal">
+            <Image row="1" col="1"  stretch="none" [src]="item.imageSrc"></Image>
+        </StackLayout>
+    </ng-template>
+</ListView>

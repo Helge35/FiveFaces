@@ -78,8 +78,8 @@ export class FacesComponent implements OnInit {
           if (imgSrc) {
             this.zone.run(() => {
 
-              let ind : number = 1;
-              if (this.faces.length >0) {
+              let ind: number = 1;
+              if (this.faces.length > 0) {
                 ind = Math.max.apply(Math, this.faces.map(function (o) { return o.id; })) + 1;
               }
 
@@ -104,11 +104,15 @@ export class FacesComponent implements OnInit {
     }
   }
 
-  public deleteFace(id:number): void{
-    this.faces = this.faces.filter(x => { return x.id != id;});
+  public deleteFace(id: number): void {
+    this.faces = this.faces.filter(x => { return x.id != id; });
   }
 
   public create(): void {
+    if (this.faces.length <= 2) {
+      alert("Make more photos");
+      return;
+    }
     this.faceService.setFaces(this.faces);
     this.router.navigate(['/result']);
   }

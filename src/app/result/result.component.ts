@@ -12,13 +12,13 @@ import { Face } from '../shared/models/face';
 })
 export class ResultComponent implements OnInit {
 
-  public face: Face;
+  public faces: Array<Face>;
 
   constructor(private page: Page, private router: Router, private faceService: FacesService) { }
   
   ngOnInit(): void {
     this.page.actionBarHidden = true;
-    this.face = this.faceService.getResult();
+    this.faces = this.faceService.getResult();
   }
 
   public backToFaces():void{

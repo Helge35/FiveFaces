@@ -1,5 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Face } from "../models/face";
+import { FacePool } from "../models/facePool";
+import { isAndroid } from "tns-core-modules/platform";
+import { ImageSource, fromNativeSource } from '@nativescript/core/image-source';
+
+var BitmapFactory = require("nativescript-bitmap-factory");
+declare var UIImage;
 
 @Injectable({
     providedIn: "root"
@@ -7,19 +13,57 @@ import { Face } from "../models/face";
 export class FacesService {
     private items = new Array<Face>();
 
+
     getFaces(): Array<Face> {
         return this.items;
     }
     resetFaces(): void {
-         this.items = [];
+        this.items = [];
     }
 
     setFaces(faces: Array<Face>): void {
         this.items = faces;
     }
 
-    getResult(): Face {
-        return this.items[0];
+    getResult(): Array<Face> {
+        let res: Array<Face> = [];
+        let sliceNum: number = this.items.length;
+        let photosSlices: FacePool[] = [];
+
+        for (let itemID = 0; itemID < sliceNum; itemID++) {
+            let singleImgRes: Array<ImageSource> = [];
+            for (let i = 0; i < sliceNum; i++) {
+                singleImgRes.push(this.cropImage(this.items[itemID].imageSrc, sliceNum, i));
+            }
+            photosSlices.push(new FacePool(singleImgRes));
+        }
+
+        for (let x = 0; x < sliceNum; x++) {
+            let rnd = Math.floor(Math.random() * sliceNum);
+            res.push(new Face(x, photosSlices[rnd].imageSrc[x]));
+        }
+
+        return res;
     }
+
+    cropImage(image: ImageSource, sliceCount: number, index: number): ImageSource {
+        let mutable = BitmapFactory.makeMutable(image);
+        return BitmapFactory.asBitmap(mutable).dispose((bmp) => {
+
+            let croppedImage = bmp.crop({ x: 0, y: (image.height / sliceCount) * index }, { width: image.width, height: image.height / sliceCount });
+
+            return isAndroid ? croppedImage.toImageSource() :
+                fromNativeSource(UIImage.alloc().initWithCGImage(croppedImage.nativeObject));
+        });
+    }
+
+    /*cropImage(image: ImageSource): ImageSource {
+        let mutable = BitmapFactory.makeMutable(image);
+        return BitmapFactory.asBitmap(mutable).dispose((bmp) => {
+            let croppedImage = bmp.crop({ x: 0, y: 0 }, { width: image.width, height: image.height/2 });
+            return isAndroid ? croppedImage.toImageSource() :
+                fromNativeSource(UIImage.alloc().initWithCGImage(croppedImage.nativeObject));
+        });
+    }*/
 }
 
