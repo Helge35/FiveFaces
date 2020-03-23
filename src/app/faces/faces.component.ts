@@ -15,7 +15,7 @@ import { Face } from '../shared/models/face';
   styleUrls: ['./faces.component.css']
 })
 export class FacesComponent implements OnInit {
-
+  public isPreview: boolean;
   private cam: CameraPlus;
   public faces: Array<Face>;
 
@@ -25,6 +25,7 @@ export class FacesComponent implements OnInit {
     this.page.actionBarHidden = true;
     this.faces = this.faceService.getFaces();
     this.faceService.resetFaces();
+    this.isPreview = this.faceService.isPreview;
   }
 
   public camLoaded(e: any): void {
@@ -82,7 +83,7 @@ export class FacesComponent implements OnInit {
               if (this.faces.length > 0) {
                 ind = Math.max.apply(Math, this.faces.map(function (o) { return o.id; })) + 1;
               }
-
+              imgSrc = this.faceService.resizePhoto(imgSrc);
               this.faces.push(new Face(ind, imgSrc));
             });
           } else {

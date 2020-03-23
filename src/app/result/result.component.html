@@ -1,11 +1,13 @@
-<Button text="Back" (tap)="backToFaces()"  class="btn btn-primary" ></Button>
 
-<!--Image class="preview-image" stretch="none" [src]="face.imageSrc"></Image-->
 
-<ListView row="1" [items]="faces" (itemTap)="onItemTap($event)"  >
+<StackLayout style="margin-top: 150; margin-left: 50;">
+<ListView  [items]="faces" separatorColor="transparent"  >
     <ng-template let-item="item" let-i="index">
-        <StackLayout class="faces-list" orientation="horizontal">
-            <Image row="1" col="1"  stretch="none" [src]="item.imageSrc"></Image>
+        <StackLayout orientation="horizontal">
+            <Image  stretch="none" [src]="item.imageSrc"></Image>
         </StackLayout>
     </ng-template>
 </ListView>
+
+<Button text="Back" (tap)="backToFaces()"  class="btn btn-primary" ></Button>
+</StackLayout>

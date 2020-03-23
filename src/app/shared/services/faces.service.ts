@@ -11,12 +11,35 @@ declare var UIImage;
     providedIn: "root"
 })
 export class FacesService {
-    private items = new Array<Face>();
-
+    private items: Array<Face> = [];
+    public isPreview: boolean = false;
 
     getFaces(): Array<Face> {
-        return this.items;
+        if (!this.isPreview) {
+            return this.items;
+        }
+        else {
+            return this.getPreviewImges();
+        }
     }
+
+    getPreviewImges(): Face[] {
+        let faces: Face[] = [];
+        let imSrc1 = new ImageSource();
+        imSrc1.loadFromFile("~/app/images/f1.jpg");
+
+        let imSrc2 = new ImageSource();
+        imSrc2.loadFromFile("~/app/images/f2.jpg");
+
+        let imSrc3 = new ImageSource();
+        imSrc3.loadFromFile("~/app/images/f3.jpg");
+
+        faces.push(new Face(1,  imSrc1));
+        faces.push(new Face(2,  imSrc2));
+        faces.push(new Face(3,  imSrc3));
+        return faces;
+    }
+
     resetFaces(): void {
         this.items = [];
     }
@@ -51,6 +74,15 @@ export class FacesService {
         return res;
     }
 
+    resizePhoto(imageSource: ImageSource): any {
+        let mutable = BitmapFactory.makeMutable(imageSource);
+        let rotatedBitmap = BitmapFactory.asBitmap(mutable).dispose((bmp) => {
+            return bmp.resize("400,400");
+        });
+
+        return rotatedBitmap.toImageSource();
+    }
+
     private getRandomIndex(sliceNum: number, usedRnd: Array<number>): number {
         let rnd = Math.floor(Math.random() * sliceNum);
         if (usedRnd.indexOf(rnd) >= 0) {
@@ -69,6 +101,8 @@ export class FacesService {
                 fromNativeSource(UIImage.alloc().initWithCGImage(croppedImage.nativeObject));
         });
     }
+
+
 
     /*cropImage(image: ImageSource): ImageSource {
         let mutable = BitmapFactory.makeMutable(image);

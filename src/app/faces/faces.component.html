@@ -1,6 +1,6 @@
 <ScrollView>
-	<GridLayout rows="250, auto, *" style="margin-top: 100;">
-		<CameraPlus height="250" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
+	<GridLayout rows="250, auto, *" style="margin-top: 50;" >
+		<CameraPlus *ngIf='!isPreview' height="250" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
 			showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
 			(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
 			(imagesSelectedEvent)="imagesSelectedEvent($event)">
@@ -17,7 +17,10 @@
 				<Image src="res://nativescript" row="1" col="1" stretch="aspectFill" class="overlay"></Image>
 			</GridLayout-->
 		</CameraPlus>
-
+		<StackLayout  *ngIf='isPreview' >
+			<Image  src="~/app/images/greeting.jpg" height="200"></Image>
+			<Label text="Preview Mode" style="text-align: center;"></Label>
+		</StackLayout>
 
 		<ListView row="1" [items]="faces" (itemTap)="onItemTap($event)" class="list-group" style="height: 200; width: 300;margin-top: 20;">
 			<ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
