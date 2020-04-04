@@ -1,12 +1,69 @@
-/* Add mobile styles for the component here.  */
-    .faces-list{
-        background-color: #dbf7e9;
-        text-align : left ;
+.body {height:100%;width:100%;font-size:18;color:#333333;position:relative;overflow:hidden;background:#bad0d5;font-family:Dancing Script,arial,sans-serif;}
+
+.FaceMe {width:100%;margin-top:60;color:#cf0022;font-family:Dancing Script,arial,sans-serif;background-color: transparent;font-size:26;font-style:italic;font-weight:900;text-align:center;z-index:111;}
+
+.playbtn {color: #fff;font-size:20;border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-bottom:-170;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
+.playbtn label {transform: rotate(-18deg);color: #fff;}
+
+.mainbtn {border-color:#f7f9f9;border-width:6;background: linear-gradient(0deg, #ff002a, #7b0015 );width:100;height:100;z-index:119;margin-bottom:25%;border-radius: 100%;box-shadow: 0 0 20 rgba(0,0,0,0.6);}
+
+.wave_circle_container {width:100%;height:380;position:relative;margin:-200 auto 0 auto;horizontal-align:center;vertical-align:center}
+.wave_circle_container label {position: relative;width:320;height:320;margin:20 0 0 10%;}
+.wave_circle_container .wave_circle1 {transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;animation: wave1 15000ms linear ;background: linear-gradient(-45deg, #9347c4, #a3001b, #00ffff, #ff002a);background-size: 10000% 10000%;}
+    @keyframes wave1 {
+        from { opacity:.3;transform: rotate(50deg); }
+      to { transform: rotate(-300deg);}
+    }
+.wave_circle_container .wave_circle2 {transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%; animation: wave2 20000ms linear ;background: linear-gradient(-45deg, #ff002a, #00ffff, #a3001b, #9347c4);background-size: 140000% 14000%;}
+    @keyframes wave2 {
+    0%{ opacity:.3;transform: rotate(100deg); }
+      100% { transform: rotate(60deg); }
+    }
+.wave_circle_container .wave_circle3 {transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;animation: wave3 25000ms linear ;background: linear-gradient(-45deg, #ff002a, #9347c4, #00ffff, #a3001b);background-size: 140000% 14000%;}
+    @keyframes wave3 {
+        from {opacity:.3; transform: rotate(190deg); }
+      to { transform: rotate(-30deg); }
+    }
+.wave_circle_container .wave_circle4 {transform: rotate(-270deg);z-index:4;opacity:.3;border-radius: 100% 160% 170% 190%;animation: wave4 30000ms linear ;background: linear-gradient(-45deg, #00ffff, #a3001b, #ff002a, #9347c4);background-size: 140000% 14000%;}
+    @keyframes wave4 {
+        from { opacity:.3;transform: rotate(-270deg); }
+      to { transform: rotate(30deg); }
     }
 
-  /*  .preview-image{
-        height: 80;
-        width: 80;
-    }*/
+.wave_circle_container .maincircle {z-index:4;background-color:#000;border-radius: 150%;width:300;height:300;position: relative;margin:30 0 0 12.5%}
 
-  
+.wave_bottom {transform: rotate(100deg);margin:-100 40 -100 40}
+.wave_bottom label { opacity: .4;position: relative;background: linear-gradient(-45deg, #ff002a, #9347c4, #00ffff, #a3001b );width: 950;height: 950;margin-left: 70;margin-top: -100;transform-origin: 50% 50%;border-radius: 400%;animation: drift 30000ms linear  ;}
+.wave_bottom .wave_b3 {animation: drift 41500ms linear  ;opacity: .4;background: linear-gradient(-45deg, #9347c4, #a3001b, #ff002a, #00ffff );}
+.wave_bottom .wave_b2 {animation: drift 25000ms linear  ;opacity: .4;background: linear-gradient(-45deg, #a3001b, #00ffff, #9347c4, #ff002a )}
+    @keyframes drift {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+.wave_bottom_right {transform: rotate(15deg);margin:-60 -60 -110 70}
+.wave_bottom_right label {opacity: .4;position: relative;background: linear-gradient(-45deg, #04e2ff, #00ffff, #ff002a , #9347c4);width: 1050;height: 1020;margin-left: -25;margin-top: -50;transform-origin: 49% 50%;border-radius: 400%;animation: drift2 30000ms linear ;}
+.wave_bottom_right .wave_b3 {animation: drift2 25500ms linear  ; opacity: .4;background: linear-gradient(-45deg, #a3001b, #00ffff, #9347c4, #ff002a )}
+.wave_bottom_right .wave_b2 {animation: drift2 20000ms linear  ;opacity: .4;background: linear-gradient(-45deg, #00ffff, #9347c4, #ff002a, #a3001b );}
+    @keyframes drift2 {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+.peopleplace {width:100%;z-index:9;height: 100;margin-top:17%;position: relative}
+.peopleplace .swiper-slide {overflow:hidden;margin:0 5;background: #c1eaf2;width:70;height:70;border-color:#f7f9f9;border-width:1;border-radius: 100%;opacity: .8;}
+.peopleplace .swiper-slide img {width:100%;}
+
+.gradradius {width: 100%;height: 350;margin-top:60%;overflow: hidden;background: linear-gradient(-180deg, #ffffff, #bad0d5);position:relative;}
+.gradradius2 {border-radius: 400% ;background:#bad0d5;width: 100%;height: 200;margin-top:0%}
+
+.morecamera {margin:0 0 35% 5%;background: #cfdadc;border-radius: 100% 0 0 100%;height: 60;right:0;position: absolute}
+.moregallery {margin:0 10% 35% 0;background: #cfdadc;border-radius: 0 100% 100%0 0;height: 60;left:0;position: absolute;}
+
+.flipcamera {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 55}
+.videocamera {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 10;}
+.opengallery {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 30}
+
+.openmenu {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 10;}
+
+.camerapreview {position:relative;z-index:222;border-radius:200%;}

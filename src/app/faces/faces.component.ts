@@ -38,6 +38,7 @@ export class FacesComponent implements OnInit {
     if (flashMode === 'off') {
       this.cam.toggleFlash();
     }
+    console.log('***** cam loaded end *****');
   }
 
   public imagesSelectedEvent(e: any): void {
