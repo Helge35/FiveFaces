@@ -1,19 +1,19 @@
-<GridLayout class="page" rows="auto, *, 100" columns="*, *, *"
-			orientation="horizontal" horizontalAlignment="center" class="body" >
+<GridLayout class="page" rows="auto, *, 100" columns="*, *, *" orientation="horizontal" horizontalAlignment="center"
+	class="body">
 
-	<AbsoluteLayout row="1" col="0" colSpan="3" class="gradradius" >
+	<AbsoluteLayout row="1" col="0" colSpan="3" class="gradradius">
 	</AbsoluteLayout>
 
-	<AbsoluteLayout row="1" col="0" colSpan="3" rowSpan="3" class="gradradius2" >
+	<AbsoluteLayout row="1" col="0" colSpan="3" rowSpan="3" class="gradradius2">
 	</AbsoluteLayout>
 
-	<AbsoluteLayout row="2" col="3" class="morecamera" >
+	<AbsoluteLayout row="2" col="3" class="morecamera">
 		<Button text="F" (tap)="toggleTheCamera()" class="flipcamera">
 		</Button>
 		<Button text="V" (tap)="onButtonTap()" class="videocamera">
 		</Button>
 	</AbsoluteLayout>
-	<AbsoluteLayout row="2" col="0" class="moregallery" >
+	<AbsoluteLayout row="2" col="0" class="moregallery">
 		<Button text="G" (tap)="onButtonTap()" class="opengallery">
 		</Button>
 	</AbsoluteLayout>
@@ -26,13 +26,13 @@
 	<Button text="FaceMe" col="1" (tap)="onButtonTap()" backgroundColor="transparent" class="FaceMe">
 	</Button>
 
-	<Button row="2" col="1" (tap)="takePicFromCam()" class="mainbtn" shadow="2" >
+	<Button row="2" col="1" (tap)="takePicFromCam()" class="mainbtn" shadow="2">
 	</Button>
 
 	<Button row="0" col="2" text="PlayMe" (tap)="create()" class="playbtn">
 	</Button>
 
-	<AbsoluteLayout row="1" col="0" colSpan="3" class="wave_circle_container" >
+	<AbsoluteLayout row="1" col="0" colSpan="3" class="wave_circle_container">
 		<Label class="wave_circle1"></Label>
 		<Label class="wave_circle2"></Label>
 		<Label class="wave_circle3"></Label>
@@ -40,18 +40,20 @@
 
 		<AbsoluteLayout class="maincircle" row="1" col="0">
 
-			<CameraPlus *ngIf='!isPreview' borderwidth="5" bordercolor="red" width="300" height="300" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
-						showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
-						(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
-						(imagesSelectedEvent)="imagesSelectedEvent($event)" class="camerapreview">
+			<CameraPlus *ngIf='!isPreview' borderwidth="5" bordercolor="red" width="300" height="300" debug="true"
+				galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false" showCaptureIcon="false"
+				showGalleryIcon="false" (loaded)="camLoaded($event)" (toggleCameraEvent)="toggleCameraEvent($event)"
+				(photoCapturedEvent)="photoCapturedEvent($event)" (imagesSelectedEvent)="imagesSelectedEvent($event)"
+				class="camerapreview">
 				<GridLayout rows="*, auto, *" columns="*, auto, *">
 					<GridLayout colSpan="3" class="bg-overlay"></GridLayout>
 					<GridLayout row="1" class="bg-overlay"></GridLayout>
 					<GridLayout row="1" col="2" class="bg-overlay"></GridLayout>
 					<GridLayout row="2" colSpan="3" class="bg-overlay"></GridLayout>
 					<Label row="1" col="1" class="overlay-label" text="📷➕"></Label>
-					<Image src="https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/nativescript.png" row="1" col="1" stretch="aspectFill"
-						   class="overlay" width="20" height="20"></Image>
+					<Image
+						src="https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/nativescript.png"
+						row="1" col="1" stretch="aspectFill" class="overlay" width="20" height="20"></Image>
 					<Image src="res://nativescript" row="1" col="1" stretch="aspectFill" class="overlay"></Image>
 				</GridLayout>
 			</CameraPlus>
@@ -62,26 +64,28 @@
 
 
 	<ScrollView row="1" col="0" rowSpan="2" colSpan="3" [items]="faces" (itemTap)="onItemTap($event)"
-				orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
-
-		<StackLayout orientation="horizontal">
-
-			<GridLayout rows="*" columns="*" class="swiper-slide">
-				<Image row="0" col="0" stretch="none" [src]="item.imageSrc" width="100">
-				</Image>
-				<!--<Button text="X" (tap)="deleteFace(item.id)"></Button>-->
-			</GridLayout>
-		</StackLayout>
-
+		orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
+		<ListView row="1" [items]="faces" (itemTap)="onItemTap($event)" class="list-group"
+			style="height: 200; width: 300;margin-top: 20;">
+			<StackLayout orientation="horizontal">
+				<ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+					<GridLayout rows="*" columns="*" class="swiper-slide">
+						<Image row="0" col="0" stretch="none" [src]="item.imageSrc" width="100">
+						</Image>
+						<!--<Button text="X" (tap)="deleteFace(item.id)"></Button>-->
+					</GridLayout>
+				</ng-template>
+			</StackLayout>
+		</ListView>
 	</ScrollView>
 
-	<AbsoluteLayout class="wave_bottom" row="2" col="0" rowSpan="2" colSpan="2" >
+	<AbsoluteLayout class="wave_bottom" row="2" col="0" rowSpan="2" colSpan="2">
 		<Label class="wave_b1"></Label>
 		<Label class="wave_b2"></Label>
 		<Label class="wave_b3"></Label>
 	</AbsoluteLayout>
 
-	<AbsoluteLayout class="wave_bottom_right" row="2" col="1" rowSpan="2" colSpan="2" >
+	<AbsoluteLayout class="wave_bottom_right" row="2" col="1" rowSpan="2" colSpan="2">
 		<Label class="wave_b1"></Label>
 		<Label class="wave_b2"></Label>
 		<Label class="wave_b3"></Label>
