@@ -40,7 +40,7 @@
 
 		<AbsoluteLayout class="maincircle" row="1" col="0">
 
-			<CameraPlus  borderradius="150" borderwidth="5" bordercolor="red" width="300" height="300" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
+			<CameraPlus *ngIf='!isPreview' borderwidth="5" bordercolor="red" width="300" height="300" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
 						showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
 						(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
 						(imagesSelectedEvent)="imagesSelectedEvent($event)" class="camerapreview">
@@ -61,21 +61,19 @@
 	</AbsoluteLayout>
 
 
-	<ScrollView borderwidth="5" bordercolor="red" row="1" col="0" rowSpan="2" colSpan="3" [items]="faces" (itemTap)="onItemTap($event)"
+	<ScrollView row="1" col="0" rowSpan="2" colSpan="3" [items]="faces" (itemTap)="onItemTap($event)"
 				orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
-        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+
 		<StackLayout orientation="horizontal">
 
 			<GridLayout rows="*" columns="*" class="swiper-slide">
-				<!--Image row="0" col="0" stretch="none" [src]="item.imageSrc" width="100">
-				</Image-->
-				<Label text="Mir" >Mir</Label>
+				<Image row="0" col="0" stretch="none" [src]="item.imageSrc" width="100">
+				</Image>
 				<!--<Button text="X" (tap)="deleteFace(item.id)"></Button>-->
 			</GridLayout>
-
 		</StackLayout>
-            </ng-template>
-    </ScrollView>
+
+	</ScrollView>
 
 	<AbsoluteLayout class="wave_bottom" row="2" col="0" rowSpan="2" colSpan="2" >
 		<Label class="wave_b1"></Label>

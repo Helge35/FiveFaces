@@ -23,3 +23,15 @@ The following CSS rule changes the font size of all Buttons that have the
 Button.-primary {
     font-size: 18;
 }
+
+.view {
+    animation-name: example;
+    animation-duration: 5;
+    animation-timing-function: ease-in;
+   animation-fill-mode: forwards;
+}
+@keyframes example {
+    from { transform: translate(-100, 0); }
+    to { transform: translate(0, 0); }
+}
+
