@@ -3,8 +3,8 @@
 .FaceMe {margin-top:60;color:#cf0022;font-size:26;font-style:italic;font-weight:900;text-align:center;z-index:111;}
 
 .playbtn {border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-bottom:-170;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
-.playicon {margin:10 10 20 50;width:62;height:52;}
-.playtext {color: #fff;font-size:20;text-align:center;width:100%;}
+.playicon {margin:15 10 20 30;width:62;height:52;}
+.playtext {transform: rotate(-18deg);color: #fff;font-size:20;text-align:center;width:100%;margin:60 0 0 0}
 
 .mainbtn {border-color:#f7f9f9;border-width:6;background: linear-gradient(0deg, #ff002a, #7b0015 );width:100;height:100;z-index:119;margin-bottom:25%;border-radius: 100%;box-shadow: 0 0 20 rgba(0,0,0,0.6);}
 
@@ -54,7 +54,7 @@
 .peopleplace {width:100%;z-index:9;height: 100;margin-top:17%;position: relative}
 .peopleplace .swiper-slide {position:relative;margin:0 5;background: #c1eaf2;width:100;height:100;border-color:#f7f9f9;border-width:1;border-radius: 100%;/*opacity: .8;float:left;*/}
 .peopleplace .swiper-img {width:100%;border-radius: 100%;}
-.peopleplace .swiper-btn {background: #fff;padding:3;width:30;height:30;border-radius:100%;border-color:#f7f9f9;border-width:1;margin:0 -60 -60 0;}
+.peopleplace .swiper-btn {background: #bad0d5;padding:4;width:26;height:26;border-radius:100%;border-color:#ffffff;border-width:1;margin:0 -60 -60 0;}
 
 .gradradius {width: 100%;height: 350;margin-top:60%;overflow: hidden;background: linear-gradient(-180deg, #ffffff, #bad0d5);position:relative;}
 .gradradius2 {border-radius: 400% ;background:#bad0d5;width: 100%;height: 200;margin-top:0%}
