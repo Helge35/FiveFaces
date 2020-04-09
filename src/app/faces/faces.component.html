@@ -8,29 +8,28 @@
 	</AbsoluteLayout>
 
 	<AbsoluteLayout row="2" col="3" class="morecamera" >
-		<Button text="F" (tap)="toggleTheCamera()" class="flipcamera">
-		</Button>
-		<Button text="V" (tap)="onButtonTap()" class="videocamera">
-		</Button>
+		<Button text="F" (tap)="toggleTheCamera()" class="flipcamera"></Button>
+		<Button text="V" (tap)="onButtonTap()" class="videocamera"></Button>
 	</AbsoluteLayout>
+
 	<AbsoluteLayout row="2" col="0" class="moregallery" >
-		<Button text="G" (tap)="onButtonTap()" class="opengallery">
-		</Button>
+		<Button text="G" (tap)="onButtonTap()" class="opengallery"></Button>
 	</AbsoluteLayout>
 
 	<AbsoluteLayout col="0" class="menuplace">
-		<Button text="M" (tap)="onButtonTap()" class="openmenu">
-		</Button>
+		<Button text="M" (tap)="onButtonTap()" class="openmenu"></Button>
 	</AbsoluteLayout>
 
-	<Button text="FaceMe" col="1" (tap)="onButtonTap()" backgroundColor="transparent" class="FaceMe">
-	</Button>
+	<Label text="FaceMe" col="1" (tap)="onButtonTap()"  class="FaceMe">
+	</Label>
 
 	<Button row="2" col="1" (tap)="takePicFromCam()" class="mainbtn" shadow="2" >
 	</Button>
 
-	<Button row="0" col="2" text="PlayMe" (tap)="create()" class="playbtn">
-	</Button>
+    <AbsoluteLayout row="0" col="2" (tap)="create()" class="playbtn">
+		<Image src="~/app/images/play.png" class="playicon" ></Image>
+		<Label text="PlayMe" class="playtext" ></Label>
+    </AbsoluteLayout>
 
 	<AbsoluteLayout row="1" col="0" colSpan="3" class="wave_circle_container" >
 		<Label class="wave_circle1"></Label>
@@ -38,40 +37,54 @@
 		<Label class="wave_circle3"></Label>
 		<Label class="wave_circle4"></Label>
 
-		<AbsoluteLayout class="maincircle" row="1" col="0">
+		<AbsoluteLayout class="maincircle" row="1" col="0" borderwidth="2" bordercolor="blue">
 
-			<CameraPlus *ngIf='!isPreview' borderwidth="5" bordercolor="red" width="300" height="300" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
+			<CameraPlus *ngIf='!isPreview'  width="300" height="300" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
 						showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
 						(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
-						(imagesSelectedEvent)="imagesSelectedEvent($event)" class="camerapreview">
-				<GridLayout rows="*, auto, *" columns="*, auto, *">
+						(imagesSelectedEvent)="imagesSelectedEvent($event)" class="camerapreviewOLD" >
+				<!--<GridLayout rows="*, auto, *" columns="*, auto, *" borderwidth="3" bordercolor="white" class="camerapreview">
 					<GridLayout colSpan="3" class="bg-overlay"></GridLayout>
 					<GridLayout row="1" class="bg-overlay"></GridLayout>
 					<GridLayout row="1" col="2" class="bg-overlay"></GridLayout>
 					<GridLayout row="2" colSpan="3" class="bg-overlay"></GridLayout>
-					<Label row="1" col="1" class="overlay-label" text="📷➕"></Label>
-					<Image src="https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/nativescript.png" row="1" col="1" stretch="aspectFill"
-						   class="overlay" width="20" height="20"></Image>
-					<Image src="res://nativescript" row="1" col="1" stretch="aspectFill" class="overlay"></Image>
-				</GridLayout>
+				</GridLayout>-->
+				<Image src="~/app/images/outerline.png" class="outerline" ></Image>
 			</CameraPlus>
 
 		</AbsoluteLayout>
-		<!--<Image src="outerline.png" class="mask" ></Image>-->
+
 	</AbsoluteLayout>
 
+	<ScrollView row="1" col="0" rowSpan="2" colSpan="3" orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
 
-	<ScrollView row="1" col="0" rowSpan="2" colSpan="3" [items]="faces" (itemTap)="onItemTap($event)"
-				orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
+			<StackLayout [items]="faces" (itemTap)="onItemTap($event)" orientation="horizontal" row="1" col="0" rowSpan="2" colSpan="3" >
 
-		<StackLayout orientation="horizontal">
-
-			<GridLayout rows="*" columns="*" class="swiper-slide">
-				<Image row="0" col="0" stretch="none" [src]="item.imageSrc" width="100">
-				</Image>
-				<!--<Button text="X" (tap)="deleteFace(item.id)"></Button>-->
-			</GridLayout>
-		</StackLayout>
+					<GridLayout rows="*" columns="*" class="swiper-slide" >
+						<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
+						<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
+					</GridLayout>
+				<GridLayout rows="*" columns="*" class="swiper-slide" >
+					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
+					<Button class="swiper-btn" (tap)="deleteFace(item.id)"></Button>
+				</GridLayout>
+				<GridLayout rows="*" columns="*" class="swiper-slide" >
+					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
+					<Button class="swiper-btn" (tap)="deleteFace(item.id)"></Button>
+				</GridLayout>
+				<GridLayout rows="*" columns="*" class="swiper-slide" >
+					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
+					<Button class="swiper-btn" (tap)="deleteFace(item.id)"></Button>
+				</GridLayout>
+				<GridLayout rows="*" columns="*" class="swiper-slide" >
+					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
+					<Button class="swiper-btn" (tap)="deleteFace(item.id)"></Button>
+				</GridLayout>
+				<GridLayout rows="*" columns="*" class="swiper-slide" >
+					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
+					<Button class="swiper-btn" (tap)="deleteFace(item.id)"></Button>
+				</GridLayout>
+			</StackLayout>
 
 	</ScrollView>
 

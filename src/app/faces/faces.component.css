@@ -1,9 +1,10 @@
 .body {height:100%;width:100%;font-size:18;color:#333333;position:relative;overflow:hidden;background:#bad0d5;font-family:Dancing Script,arial,sans-serif;}
 
-.FaceMe {width:100%;margin-top:60;color:#cf0022;font-family:Dancing Script,arial,sans-serif;background-color: transparent;font-size:26;font-style:italic;font-weight:900;text-align:center;z-index:111;}
+.FaceMe {margin-top:60;color:#cf0022;font-size:26;font-style:italic;font-weight:900;text-align:center;z-index:111;}
 
-.playbtn {color: #fff;font-size:20;border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-bottom:-170;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
-.playbtn label {transform: rotate(-18deg);color: #fff;}
+.playbtn {border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-bottom:-170;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
+.playicon {margin:10 10 20 50;width:62;height:52;}
+.playtext {color: #fff;font-size:20;text-align:center;width:100%;}
 
 .mainbtn {border-color:#f7f9f9;border-width:6;background: linear-gradient(0deg, #ff002a, #7b0015 );width:100;height:100;z-index:119;margin-bottom:25%;border-radius: 100%;box-shadow: 0 0 20 rgba(0,0,0,0.6);}
 
@@ -51,8 +52,9 @@
     }
 
 .peopleplace {width:100%;z-index:9;height: 100;margin-top:17%;position: relative}
-.peopleplace .swiper-slide {overflow:hidden;margin:0 5;background: #c1eaf2;width:70;height:70;border-color:#f7f9f9;border-width:1;border-radius: 100%;opacity: .8;}
-.peopleplace .swiper-slide img {width:100%;}
+.peopleplace .swiper-slide {position:relative;margin:0 5;background: #c1eaf2;width:100;height:100;border-color:#f7f9f9;border-width:1;border-radius: 100%;/*opacity: .8;float:left;*/}
+.peopleplace .swiper-img {width:100%;border-radius: 100%;}
+.peopleplace .swiper-btn {background: #fff;padding:3;width:30;height:30;border-radius:100%;border-color:#f7f9f9;border-width:1;margin:0 -60 -60 0;}
 
 .gradradius {width: 100%;height: 350;margin-top:60%;overflow: hidden;background: linear-gradient(-180deg, #ffffff, #bad0d5);position:relative;}
 .gradradius2 {border-radius: 400% ;background:#bad0d5;width: 100%;height: 200;margin-top:0%}
@@ -64,6 +66,8 @@
 .videocamera {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 10;}
 .opengallery {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 30}
 
-.openmenu {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 10;}
+.openmenu {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:50 0 0 0;}
 
-.camerapreview {position:relative;z-index:222;border-radius:200%;}
+.camerapreview {border-color:#red;border-width:5;position:relative;z-index:222;border-radius:150%;background-color: transparent;overflow:hidden}
+
+.outerline {position:absolute;left:0;top:0;width:100%;height:100%;z-index:333;}
