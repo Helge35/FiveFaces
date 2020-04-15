@@ -1,13 +1,49 @@
+<GridLayout class="page" rows="auto, *, 100" columns="*, *, *"
+            orientation="horizontal" horizontalAlignment="center" class="body" >
 
+<AbsoluteLayout col="0" class="menuplace">
+    <AbsoluteLayout text="M" (tap)="onButtonTap()" class="openmenu">
+        <Label class="wave_btn1" ></Label>
+        <Label class="wave_btn2"></Label>
+        <Label class="wave_btn3"></Label>
+    </AbsoluteLayout>
+</AbsoluteLayout>
 
-<StackLayout style="margin-top: 150; margin-left: 50;">
-<ListView  [items]="faces" separatorColor="transparent"  >
+<Label text="FaceMe" col="1" (tap)="onButtonTap()"  class="FaceMe">
+</Label>
+
+<AbsoluteLayout (tap)="backToFaces()"  class="backbtn" >
+    <Label class="wave_btn1" ></Label>
+    <Label class="wave_btn2"></Label>
+    <Label class="wave_btn3"></Label>
+</AbsoluteLayout>
+
+<!--<ListView  [items]="faces" separatorColor="transparent" class="mask fiveslices" >
     <ng-template let-item="item" let-i="index">
-        <StackLayout orientation="horizontal">
+        <StackLayout orientation="horizontal" class="slice1">
             <Image  stretch="none" [src]="item.imageSrc"></Image>
         </StackLayout>
     </ng-template>
-</ListView>
+</ListView>-->
 
-<Button text="Back" (tap)="backToFaces()"  class="btn btn-primary" ></Button>
-</StackLayout>
+    <ScrollView class="mask fiveslices" row="1" col="0"  colSpan="3">
+
+            <GridLayout class="sliceplace slice1">
+                <Image src="~/app/images/6.jpg"></Image>
+            </GridLayout>
+            <GridLayout class="sliceplace slice2">
+                <Image src="~/app/images/6.jpg"></Image>
+            </GridLayout>
+            <GridLayout class="sliceplace slice3">
+                <Image src="~/app/images/6.jpg"></Image>
+            </GridLayout>
+            <GridLayout class="sliceplace slice4">
+                <Image src="~/app/images/6.jpg"></Image>
+            </GridLayout>
+            <GridLayout class="sliceplace slice5">
+                <Image src="~/app/images/6.jpg"></Image>
+            </GridLayout>
+
+    </ScrollView>
+
+</GridLayout>

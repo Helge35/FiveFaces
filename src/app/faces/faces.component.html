@@ -8,7 +8,8 @@
 	</AbsoluteLayout>
 
 	<AbsoluteLayout row="2" col="3" class="morecamera" >
-		<Button text="F" (tap)="toggleTheCamera()" class="flipcamera"></Button>
+		<Button text="F" (tap)="toggleTheCamera()" class="flipcamera">
+		</Button>
 		<Button text="V" (tap)="onButtonTap()" class="videocamera"></Button>
 	</AbsoluteLayout>
 
@@ -17,7 +18,12 @@
 	</AbsoluteLayout>
 
 	<AbsoluteLayout col="0" class="menuplace">
-		<Button text="M" (tap)="onButtonTap()" class="openmenu"></Button>
+		<AbsoluteLayout text="M" (tap)="onButtonTap()" class="openmenu">
+			<Label class="wave_btn1" ></Label>
+			<Label class="wave_btn2"></Label>
+			<Label class="wave_btn3"></Label>
+		</AbsoluteLayout>
+
 	</AbsoluteLayout>
 
 	<Label text="FaceMe" col="1" (tap)="onButtonTap()"  class="FaceMe">
@@ -32,27 +38,26 @@
 
     </AbsoluteLayout>
 
-	<AbsoluteLayout row="1" col="0" colSpan="3" class="wave_circle_container" >
+	<!--<AbsoluteLayout row="1" col="0" colSpan="3" class="wave_circle_container" >
 		<Label class="wave_circle1"></Label>
 		<Label class="wave_circle2"></Label>
 		<Label class="wave_circle3"></Label>
 		<Label class="wave_circle4"></Label>
+	</AbsoluteLayout>-->
 
-		<AbsoluteLayout class="maincircle" row="1" col="0" borderwidth="2" bordercolor="blue">
-			<CameraPlus *ngIf='!isPreview'  width="300" height="300" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
-						showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
-						(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
-						(imagesSelectedEvent)="imagesSelectedEvent($event)" class="camerapreviewOLD" >
-				<!--<GridLayout rows="*, auto, *" columns="*, auto, *" borderwidth="3" bordercolor="white" class="camerapreview">
-					<GridLayout colSpan="3" class="bg-overlay"></GridLayout>
-					<GridLayout row="1" class="bg-overlay"></GridLayout>
-					<GridLayout row="1" col="2" class="bg-overlay"></GridLayout>
-					<GridLayout row="2" colSpan="3" class="bg-overlay"></GridLayout>
-				</GridLayout>-->
-				<Image src="~/app/images/outerline.png" class="outerline" ></Image>
-			</CameraPlus>
-		</AbsoluteLayout>
-
+	<AbsoluteLayout class="maincircle" row="1" col="0" colSpan="3">
+		<CameraPlus *ngIf='!isPreview'   debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
+					showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
+					(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
+					(imagesSelectedEvent)="imagesSelectedEvent($event)" class="camerapreview" >
+			<!--<GridLayout rows="*, auto, *" columns="*, auto, *" borderwidth="3" bordercolor="white" class="camerapreview">
+                <GridLayout colSpan="3" class="bg-overlay"></GridLayout>
+                <GridLayout row="1" class="bg-overlay"></GridLayout>
+                <GridLayout row="1" col="2" class="bg-overlay"></GridLayout>
+                <GridLayout row="2" colSpan="3" class="bg-overlay"></GridLayout>
+            </GridLayout>-->
+			<!--<Image src="~/app/images/outerline.png" class="outerline" ></Image>-->
+		</CameraPlus>
 	</AbsoluteLayout>
 
 	<ScrollView  row="1" col="0" rowSpan="2" colSpan="3" orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
@@ -62,7 +67,6 @@
 				<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
 			</GridLayout>
 		</StackLayout>
-
     </ScrollView>
 
 	<AbsoluteLayout class="wave_bottom" row="2" col="0" rowSpan="2" colSpan="2" >
