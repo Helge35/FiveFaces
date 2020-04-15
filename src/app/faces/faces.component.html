@@ -39,7 +39,6 @@
 		<Label class="wave_circle4"></Label>
 
 		<AbsoluteLayout class="maincircle" row="1" col="0" borderwidth="2" bordercolor="blue">
-
 			<CameraPlus *ngIf='!isPreview'  width="300" height="300" debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
 						showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
 						(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
@@ -52,42 +51,19 @@
 				</GridLayout>-->
 				<Image src="~/app/images/outerline.png" class="outerline" ></Image>
 			</CameraPlus>
-
 		</AbsoluteLayout>
 
 	</AbsoluteLayout>
 
-	<ScrollView row="1" col="0" rowSpan="2" colSpan="3" orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
+	<ScrollView  row="1" col="0" rowSpan="2" colSpan="3" orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
+		<StackLayout  (itemTap)="onItemTap($event)" orientation="horizontal" row="1" col="0" rowSpan="2" colSpan="3" >
+			<GridLayout *ngFor="let item of faces" rows="*" columns="*" class="swiper-slide" >
+				<Image [src]="item.imageSrc" class="swiper-img"></Image>
+				<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
+			</GridLayout>
+		</StackLayout>
 
-			<StackLayout [items]="faces" (itemTap)="onItemTap($event)" orientation="horizontal" row="1" col="0" rowSpan="2" colSpan="3" >
-
-					<GridLayout rows="*" columns="*" class="swiper-slide" >
-						<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
-						<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
-					</GridLayout>
-				<GridLayout rows="*" columns="*" class="swiper-slide" >
-					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
-					<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
-				</GridLayout>
-				<GridLayout rows="*" columns="*" class="swiper-slide" >
-					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
-					<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
-				</GridLayout>
-				<GridLayout rows="*" columns="*" class="swiper-slide" >
-					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
-					<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
-				</GridLayout>
-				<GridLayout rows="*" columns="*" class="swiper-slide" >
-					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
-					<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
-				</GridLayout>
-				<GridLayout rows="*" columns="*" class="swiper-slide" >
-					<Image src="~/app/images/6.jpg" class="swiper-img"></Image>
-					<Image src="~/app/images/delete.png" class="swiper-btn" (tap)="deleteFace(item.id)"></Image>
-				</GridLayout>
-			</StackLayout>
-
-	</ScrollView>
+    </ScrollView>
 
 	<AbsoluteLayout class="wave_bottom" row="2" col="0" rowSpan="2" colSpan="2" >
 		<Label class="wave_b1"></Label>
@@ -102,12 +78,6 @@
 	</AbsoluteLayout>
 
 </GridLayout>
-
-
-
-
-
-
 
 
 <!--<ScrollView>
