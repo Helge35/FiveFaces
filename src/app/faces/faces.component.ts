@@ -35,9 +35,13 @@ export class FacesComponent implements OnInit {
     const flashMode = this.cam.getFlashMode();
 
     // Turn flash on at startup
-    if (flashMode === 'off') {
-      this.cam.toggleFlash();
-    }
+    //if (flashMode === 'off') {
+    //  this.cam.toggleFlash();
+   // }
+   const cameraSide = this.cam.getCurrentCamera();
+   if (cameraSide == "rear") {
+     this.cam.toggleCamera();
+   }
     console.log('***** cam loaded end *****');
   }
 
