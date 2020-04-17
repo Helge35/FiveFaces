@@ -3,6 +3,7 @@ import { Page } from "tns-core-modules/ui/page";
 import { Router } from "@angular/router";
 
 import { FacesService } from "../shared/services/faces.service";
+import {FilesService} from "../shared/services/files.service"
 import { Face } from '../shared/models/face';
 
 @Component({
@@ -14,7 +15,7 @@ export class ResultComponent implements OnInit {
 
   public faces: Array<Face>;
 
-  constructor(private page: Page, private router: Router, private faceService: FacesService) { }
+  constructor(private page: Page, private router: Router, private faceService: FacesService, private fileService: FilesService) { }
   
   ngOnInit(): void {
     this.page.actionBarHidden = true;
@@ -29,4 +30,9 @@ export class ResultComponent implements OnInit {
     this.faces = this.faceService.getResult(slices);
   }
 
+  public exportImg(): void{
+   var exportedSrc= this.faceService.exportImg(this.faces);
+   this.faces.push(new Face(100, exportedSrc));
+   this.fileService.saveImage(exportedSrc);
+  }
 }

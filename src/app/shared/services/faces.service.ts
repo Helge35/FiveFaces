@@ -12,7 +12,7 @@ declare var UIImage;
 })
 export class FacesService {
     private items: Array<Face> = [];
-    public isPreview: boolean = false;
+    public isPreview: boolean = true;
 
     getFaces(): Array<Face> {
         if (!this.isPreview) {
@@ -34,9 +34,9 @@ export class FacesService {
         let imSrc3 = new ImageSource();
         imSrc3.loadFromFile("~/app/images/f3.jpg");
 
-        faces.push(new Face(1,  imSrc1));
-        faces.push(new Face(2,  imSrc2));
-        faces.push(new Face(3,  imSrc3));
+        faces.push(new Face(1, imSrc1));
+        faces.push(new Face(2, imSrc2));
+        faces.push(new Face(3, imSrc3));
         return faces;
     }
 
@@ -50,25 +50,26 @@ export class FacesService {
 
     getResult(slices: number): Array<Face> {
         let res: Array<Face> = [];
-        let sliceNum: number = slices;
-        let photosSlices: FacePool[] = [];
+        let photosSlicesBuckets: FacePool[] = [];
 
-        for (let itemID = 0; itemID < sliceNum; itemID++) {
+        for (let sliceID = 0; sliceID < slices; sliceID++) {
+
             let singleImgRes: Array<ImageSource> = [];
-            for (let i = 0; i < sliceNum; i++) {
-                singleImgRes.push(this.cropImage(this.items[itemID].imageSrc, sliceNum, i));
+            for (let photoID = 0; photoID < this.items.length; photoID++) {
+                singleImgRes.push(this.cropImage(this.items[photoID].imageSrc, slices, sliceID));
             }
-            photosSlices.push(new FacePool(singleImgRes));
+
+            photosSlicesBuckets.push(new FacePool(singleImgRes));
         }
 
-        let usedRnd: Array<number> = [];
-        for (let x = 0; x < sliceNum; x++) {
+        // let usedRnd: Array<number> = [];
+        for (let x = 0; x < slices; x++) {
             let randomInd: number;
 
-            randomInd = this.getRandomIndex(sliceNum, usedRnd);
-            usedRnd.push(randomInd);
+            randomInd = Math.floor(Math.random() * this.items.length);//this.getRandomIndex(slices, usedRnd);
+            // usedRnd.push(randomInd);
 
-            res.push(new Face(x, photosSlices[randomInd].imageSrc[x]));
+            res.push(new Face(x, photosSlicesBuckets[x].imageSrc[randomInd]));
         }
 
         return res;
@@ -83,13 +84,13 @@ export class FacesService {
         return rotatedBitmap.toImageSource();
     }
 
-    private getRandomIndex(sliceNum: number, usedRnd: Array<number>): number {
-        let rnd = Math.floor(Math.random() * sliceNum);
-        if (usedRnd.indexOf(rnd) >= 0) {
-            return this.getRandomIndex(sliceNum, usedRnd);
-        }
-        return rnd;
-    }
+    /*  private getRandomIndex(sliceNum: number, usedRnd: Array<number>): number {
+          let rnd = Math.floor(Math.random() * sliceNum);
+          if (usedRnd.indexOf(rnd) >= 0) {
+              return this.getRandomIndex(sliceNum, usedRnd);
+          }
+          return rnd;
+      }*/
 
     private cropImage(image: ImageSource, sliceCount: number, index: number): ImageSource {
         let mutable = BitmapFactory.makeMutable(image);
@@ -102,15 +103,23 @@ export class FacesService {
         });
     }
 
-
-
-    /*cropImage(image: ImageSource): ImageSource {
+    private GetBitMap(image: ImageSource): any {
         let mutable = BitmapFactory.makeMutable(image);
-        return BitmapFactory.asBitmap(mutable).dispose((bmp) => {
-            let croppedImage = bmp.crop({ x: 0, y: 0 }, { width: image.width, height: image.height/2 });
-            return isAndroid ? croppedImage.toImageSource() :
-                fromNativeSource(UIImage.alloc().initWithCGImage(croppedImage.nativeObject));
-        });
-    }*/
+        return BitmapFactory.asBitmap(mutable);
+    }
+
+    exportImg(faces: Array<Face>): ImageSource {
+        let heightImg = faces.reduce((sum, face) => sum + face.imageSrc.height, 0)
+        let widthImg = Math.max.apply(Math, faces.map(x => x.imageSrc.width));
+
+        var bmp = BitmapFactory.create(widthImg, heightImg);
+        for (let index = 0; index < faces.length; index++) {
+            let bm = this.GetBitMap(faces[index].imageSrc);
+            var imgPosition = (heightImg / faces.length) * index;
+            bmp.insert(bm, "0," + String(imgPosition));
+        }
+
+        return bmp.toImageSource();
+    }
 }
 
