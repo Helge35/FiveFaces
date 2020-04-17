@@ -1,19 +1,22 @@
 <GridLayout class="page" rows="auto, *, 100" columns="*, *, *"
 			orientation="horizontal" horizontalAlignment="center" class="body" >
 
+	<Label text="FaceMe" col="1" (tap)="onButtonTap()"  class="FaceMe">
+	</Label>
+
 	<AbsoluteLayout row="1" col="0" colSpan="3" class="gradradius" >
 	</AbsoluteLayout>
 
 	<AbsoluteLayout row="1" col="0" colSpan="3" rowSpan="3" class="gradradius2" >
 	</AbsoluteLayout>
 
-	<AbsoluteLayout row="2" col="3" class="morecamera" >
+	<AbsoluteLayout row="2" col="3" class="morecamera" borderwidth="3" bordercolor="red">
 		<Button text="F" (tap)="toggleTheCamera()" class="flipcamera">
 		</Button>
-		<Button text="V" (tap)="onButtonTap()" class="videocamera"></Button>
+		<!--<Button text="V" (tap)="onButtonTap()" class="videocamera"></Button>-->
 	</AbsoluteLayout>
 
-	<AbsoluteLayout row="2" col="0" class="moregallery" >
+	<AbsoluteLayout row="2" col="0" class="moregallery" borderwidth="3" bordercolor="red">
 		<Button text="G" (tap)="onButtonTap()" class="opengallery"></Button>
 	</AbsoluteLayout>
 
@@ -26,16 +29,12 @@
 
 	</AbsoluteLayout>
 
-	<Label text="FaceMe" col="1" (tap)="onButtonTap()"  class="FaceMe">
-	</Label>
-
 	<Button row="2" col="1" (tap)="takePicFromCam()" class="mainbtn" shadow="2" >
 	</Button>
 
     <AbsoluteLayout row="0" col="2" (tap)="create()" class="playbtn">
 		<Label text="PlayMe" class="playtext" ></Label>
 		<Image src="~/app/images/play.png" class="playicon" ></Image>
-
     </AbsoluteLayout>
 
 	<!--<AbsoluteLayout row="1" col="0" colSpan="3" class="wave_circle_container" >
@@ -69,7 +68,7 @@
 		</StackLayout>
     </ScrollView>
 
-	<AbsoluteLayout class="wave_bottom" row="2" col="0" rowSpan="2" colSpan="2" >
+	<!--<AbsoluteLayout class="wave_bottom" row="2" col="0" rowSpan="2" colSpan="2" >
 		<Label class="wave_b1"></Label>
 		<Label class="wave_b2"></Label>
 		<Label class="wave_b3"></Label>
@@ -79,6 +78,10 @@
 		<Label class="wave_b1"></Label>
 		<Label class="wave_b2"></Label>
 		<Label class="wave_b3"></Label>
+	</AbsoluteLayout>-->
+
+	<AbsoluteLayout row="1" col="*" colSpan="3" class="bottomwaves" borderwidth="3" bordercolor="red">
 	</AbsoluteLayout>
+
 
 </GridLayout>
