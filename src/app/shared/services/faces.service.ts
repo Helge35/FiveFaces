@@ -48,9 +48,9 @@ export class FacesService {
         this.items = faces;
     }
 
-    getResult(): Array<Face> {
+    getResult(slices: number): Array<Face> {
         let res: Array<Face> = [];
-        let sliceNum: number = this.items.length;
+        let sliceNum: number = slices;
         let photosSlices: FacePool[] = [];
 
         for (let itemID = 0; itemID < sliceNum; itemID++) {

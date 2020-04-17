@@ -88,7 +88,6 @@ export class FacesComponent implements OnInit {
               if (this.faces.length > 0) {
                 ind = Math.max.apply(Math, this.faces.map(function (o) { return o.id; })) + 1;
               }
-              imgSrc = this.faceService.resizePhoto(imgSrc);
               this.faces.push(new Face(ind, imgSrc));
             });
           } else {

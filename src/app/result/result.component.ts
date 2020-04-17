@@ -18,11 +18,15 @@ export class ResultComponent implements OnInit {
   
   ngOnInit(): void {
     this.page.actionBarHidden = true;
-    this.faces = this.faceService.getResult();
+    this.faces = this.faceService.getResult(3);
   }
 
   public backToFaces():void{
     this.router.navigate(['/faces']);
+  }
+
+  public cutImg(slices: number): void {
+    this.faces = this.faceService.getResult(slices);
   }
 
 }

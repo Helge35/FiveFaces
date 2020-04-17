@@ -18,32 +18,16 @@
     <Label class="wave_btn3"></Label>
 </AbsoluteLayout>
 
-<!--<ListView  [items]="faces" separatorColor="transparent" class="mask fiveslices" >
+<ListView row="1" [items]="faces" separatorColor="transparent" class="mask fiveslices" >
     <ng-template let-item="item" let-i="index">
         <StackLayout orientation="horizontal" class="slice1">
             <Image  stretch="none" [src]="item.imageSrc"></Image>
         </StackLayout>
     </ng-template>
-</ListView>-->
+</ListView>
 
-    <ScrollView class="mask fiveslices" row="1" col="0"  colSpan="3">
-
-            <GridLayout class="sliceplace slice1">
-                <Image src="~/app/images/6.jpg"></Image>
-            </GridLayout>
-            <GridLayout class="sliceplace slice2">
-                <Image src="~/app/images/6.jpg"></Image>
-            </GridLayout>
-            <GridLayout class="sliceplace slice3">
-                <Image src="~/app/images/6.jpg"></Image>
-            </GridLayout>
-            <GridLayout class="sliceplace slice4">
-                <Image src="~/app/images/6.jpg"></Image>
-            </GridLayout>
-            <GridLayout class="sliceplace slice5">
-                <Image src="~/app/images/6.jpg"></Image>
-            </GridLayout>
-
-    </ScrollView>
+        <Button row="2" col="0" text="3" style="width: 50;" (tap)=cutImg(3) ></Button>
+        <Button row="2" col="1" text="4" style="width: 50;" (tap)=cutImg(4)></Button>
+        <Button row="2" col="2" text="5" style="width: 50;"  (tap)=cutImg(5)></Button>
 
 </GridLayout>
