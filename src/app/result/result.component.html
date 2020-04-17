@@ -16,9 +16,17 @@
     <Label class="wave_btn1" ></Label>
     <Label class="wave_btn2"></Label>
     <Label class="wave_btn3"></Label>
+    <Image src="~/app/images/arrow.png" class="arrowicon" ></Image>
 </AbsoluteLayout>
 
-<ListView row="1" [items]="faces" separatorColor="transparent" class="mask fiveslices" >
+    <AbsoluteLayout col="2" (tap)="backToFaces()"  class="sharebtn" >
+        <Label class="wave_btn1" ></Label>
+        <Label class="wave_btn2"></Label>
+        <Label class="wave_btn3"></Label>
+        <Image src="~/app/images/share.png" class="shareicon" ></Image>
+    </AbsoluteLayout>
+
+<ListView row="1" col="0"  [items]="faces" separatorColor="transparent" class="mask " >
     <ng-template let-item="item" let-i="index">
         <StackLayout orientation="horizontal" class="slice1">
             <Image  stretch="none" [src]="item.imageSrc"></Image>
@@ -26,9 +34,9 @@
     </ng-template>
 </ListView>
 
-        <Button row="2" col="0" text="3" style="width: 50;" (tap)=cutImg(3) ></Button>
-        <Button row="2" col="1" text="4" style="width: 50;" (tap)=cutImg(4)></Button>
-        <Button row="2" col="2" text="5" style="width: 50;"  (tap)=cutImg(5)></Button>
+    <Button row="2" col="0" text="3" style="width: 50;" (tap)=cutImg(3) ></Button>
+    <Button row="2" col="1" text="4" style="width: 50;" (tap)=cutImg(4)></Button>
+    <Button row="2" col="2" text="5" style="width: 50;"  (tap)=cutImg(5)></Button>
 
 
         <Button row="" col="0" text="Ex" style="width: 50;"  (tap)=exportImg()></Button>

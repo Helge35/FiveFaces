@@ -31,8 +31,8 @@
       to { transform: rotate(30deg); }
     }
 
-.maincircle {z-index:4;background-color:#000;border-radius: 150%;width:340;height:400;position: relative;margin-top:-180}
-.camerapreview {width:100%;height:100%;position:relative;z-index:222;border-radius:150%;background-color: transparent;overflow:hidden}
+.maincircle {z-index:4;background-color:#000;border-radius: 100%;width:340;height:400;position: relative;margin-top:-180}
+.camerapreview {width:100%;height:100%;position:relative;z-index:222;border-radius:100%;background-color: transparent;overflow:hidden}
 
 .wave_bottom {transform: rotate(100deg);margin:-100 40 -100 40}
 .wave_bottom label { opacity: .4;position: relative;background: linear-gradient(-45deg, #ff002a, #9347c4, #00ffff, #a3001b );width: 950;height: 950;margin-left: 70;margin-top: -100;transform-origin: 50% 50%;border-radius: 400%;animation: drift 30000ms linear  ;}
@@ -54,19 +54,18 @@
 
 .peopleplace {width:100%;z-index:9;height: 100;margin-top:17%;position: relative}
 .peopleplace .swiper-slide {position:relative;margin:0 5;background: #c1eaf2;width:100;height:100;border-color:#f7f9f9;border-width:1;border-radius: 100%;/*opacity: .8;float:left;*/}
-.peopleplace .swiper-img {width:100%;border-radius: 100%;}
+.peopleplace .swiper-img {width:100;height:auto;border-radius: 100%;border-color:black;border-width:1;}
 .peopleplace .swiper-btn {background: #bad0d5;padding:4;width:26;height:26;border-radius:100%;border-color:#ffffff;border-width:1;margin:0 -60 -60 0;}
 
 .gradradius {width: 100%;height: 350;margin-top:60%;overflow: hidden;background: linear-gradient(-180deg, #ffffff, #bad0d5);position:relative;}
 .gradradius2 {border-radius: 400% ;background:#bad0d5;width: 100%;height: 200;margin-top:0%}
 
-.morecamera {margin:0 0 35% 5%;background: #cfdadc;border-radius: 100% 0 0 100%;height: 60;right:0;position: absolute}
-.moregallery {margin:0 10% 35% 0;background: #cfdadc;border-radius: 0 100% 100%0 0;height: 60;left:0;position: absolute;}
+.morecamera {margin:0 -60 35% 0;background: #cfdadc;border-radius: 100% 0 0 100%;height: 60;width:60}
+.moregallery {margin:0 60 35% 0;background: #cfdadc;border-radius: 0 100% 100%0 0;height: 60;width:60}
 
-.flipcamera {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 55}
-
-.videocamera {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 10;}
-.opengallery {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 30}
+.flipcamera {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 0}
+.videocamera {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 0;}
+.opengallery {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 0}
 
 .openmenu {width: 60;height:60;margin:50 0 0 0;}
 .openmenu label {position: relative;width:100%;height:100%;}
@@ -79,12 +78,21 @@
 .backbtn .wave_btn2 {margin:-16 0 0 0;transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%;background: linear-gradient(-45deg, #ff002a, #00ffff);background-size: 1000% 1000%;}
 .backbtn .wave_btn3 {margin:-21 0 0 0;transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;background: linear-gradient(-45deg, #00d5ff, #9347c4);background-size: 1000% 1000%;}
 .backbtn .wave_btn1 {margin:-19 0 0 0;transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;background: linear-gradient(-45deg, #9347c4, #a3001b);background-size: 1000% 1000%;}
+.backbtn .arrowicon {margin:5 0 0 0;width:37;/*height:31;*/}
+
+.sharebtn {width: 60;height:60;margin:50 0 0 60;}
+.sharebtn label {position: relative;width:100%;height:100%;}
+.sharebtn .wave_btn2 {margin:-16 0 0 0;transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%;background: linear-gradient(-45deg, #ff002a, #00ffff);background-size: 1000% 1000%;}
+.sharebtn .wave_btn3 {margin:-21 0 0 0;transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;background: linear-gradient(-45deg, #00d5ff, #9347c4);background-size: 1000% 1000%;}
+.sharebtn .wave_btn1 {margin:-19 0 0 0;transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;background: linear-gradient(-45deg, #9347c4, #a3001b);background-size: 1000% 1000%;}
 
 .outerline {width:100%;height:100%;z-index:333;border-color:white;border-width:5;}
 
 .mainbefore {content: "";display: block;position: absolute;left: -300;top: 0;width: 450;height: 830;background: #ffffff\.5;background: rgba(255, 255, 255, 0.05);-moz-transform: skew(-30deg, 0deg);-webkit-transform: skew(-30deg, 0deg);-o-transform: skew(-30deg, 0deg);-ms-transform: skew(-30deg, 0deg);transform: skew(-30deg, 0deg);}
 
-.mask {border-color:red;border-width:5;width:300;height:300;overflow:hidden;-moz-border-radius: 150;-webkit-border-radius: 150;border-radius: 150;background: url(images/bgcircle.png) center top no-repeat;margin:auto;position:relative}
+.bottomwaves {background: url(~/app/images/bottomwide.png) center top no-repeat;background-size:auto 100%;height:30%;width:100%;margin:-50 0 0 0}
+
+.mask {width:300;height:300;overflow:hidden;border-radius: 100;margin:auto;position:relative}
 
 	.threeslices .sliceplace {width:100%;height:100;overflow:hidden;position:relative}
 	.threeslices .sliceplace img {width:100%;position:absolute;left:0;top:0;}
