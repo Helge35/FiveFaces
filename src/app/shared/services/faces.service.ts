@@ -12,7 +12,7 @@ declare var UIImage;
 })
 export class FacesService {
     private items: Array<Face> = [];
-    public isPreview: boolean = true;
+    public isPreview: boolean = false;
 
     getFaces(): Array<Face> {
         if (!this.isPreview) {
