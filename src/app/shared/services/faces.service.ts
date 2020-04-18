@@ -12,7 +12,7 @@ declare var UIImage;
 })
 export class FacesService {
     private items: Array<Face> = [];
-    public isPreview: boolean = false;
+    public isPreview: boolean = true;
 
     getFaces(): Array<Face> {
         if (!this.isPreview) {
@@ -62,27 +62,24 @@ export class FacesService {
             photosSlicesBuckets.push(new FacePool(singleImgRes));
         }
 
-        // let usedRnd: Array<number> = [];
         for (let x = 0; x < slices; x++) {
             let randomInd: number;
 
-            randomInd = Math.floor(Math.random() * this.items.length);//this.getRandomIndex(slices, usedRnd);
-            // usedRnd.push(randomInd);
-
+            randomInd = Math.floor(Math.random() * this.items.length);
             res.push(new Face(x, photosSlicesBuckets[x].imageSrc[randomInd]));
         }
 
         return res;
     }
 
-    resizePhoto(imageSource: ImageSource): any {
-        let mutable = BitmapFactory.makeMutable(imageSource);
-        let rotatedBitmap = BitmapFactory.asBitmap(mutable).dispose((bmp) => {
-            return bmp.resize("400,400");
-        });
-
-        return rotatedBitmap.toImageSource();
-    }
+    /*  resizePhoto(imageSource: ImageSource): any {
+          let mutable = BitmapFactory.makeMutable(imageSource);
+          let rotatedBitmap = BitmapFactory.asBitmap(mutable).dispose((bmp) => {
+              return bmp.resize("400,400");
+          });
+  
+          return rotatedBitmap.toImageSource();
+      }*/
 
     /*  private getRandomIndex(sliceNum: number, usedRnd: Array<number>): number {
           let rnd = Math.floor(Math.random() * sliceNum);
@@ -91,6 +88,7 @@ export class FacesService {
           }
           return rnd;
       }*/
+
 
     private cropImage(image: ImageSource, sliceCount: number, index: number): ImageSource {
         let mutable = BitmapFactory.makeMutable(image);

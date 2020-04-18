@@ -26,7 +26,7 @@
 	</Button>
 
 	<AbsoluteLayout class="maincircle" row="0" col="0" colSpan="3" rowSpan="2" >
-		<CameraPlus *ngIf='!isPreview'   debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
+		<CameraPlus debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
 					showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
 					(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
 					(imagesSelectedEvent)="imagesSelectedEvent($event)" class="camerapreview" >
