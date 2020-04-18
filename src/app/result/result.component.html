@@ -2,7 +2,7 @@
             orientation="horizontal" horizontalAlignment="center" class="body" >
 
 <AbsoluteLayout col="0" class="menuplace">
-    <AbsoluteLayout text="M" (tap)="onButtonTap()" class="openmenu">
+    <AbsoluteLayout  (tap)="onButtonTap()" class="openmenu">
         <Label class="wave_btn1" ></Label>
         <Label class="wave_btn2"></Label>
         <Label class="wave_btn3"></Label>
@@ -19,26 +19,38 @@
     <Image src="~/app/images/arrow.png" class="arrowicon" ></Image>
 </AbsoluteLayout>
 
-    <AbsoluteLayout col="2" (tap)="backToFaces()"  class="sharebtn" >
+    <AbsoluteLayout (tap)=exportImg() class="sharebtn" horizontalAlignment="right">
         <Label class="wave_btn1" ></Label>
         <Label class="wave_btn2"></Label>
         <Label class="wave_btn3"></Label>
         <Image src="~/app/images/share.png" class="shareicon" ></Image>
     </AbsoluteLayout>
 
-<ListView row="1" col="0"  [items]="faces" separatorColor="transparent" class="mask " >
-    <ng-template let-item="item" let-i="index">
-        <StackLayout orientation="horizontal" class="slice1">
-            <Image  stretch="none" [src]="item.imageSrc"></Image>
-        </StackLayout>
-    </ng-template>
-</ListView>
-
-    <Button row="2" col="0" text="3" style="width: 50;" (tap)=cutImg(3) ></Button>
-    <Button row="2" col="1" text="4" style="width: 50;" (tap)=cutImg(4)></Button>
-    <Button row="2" col="2" text="5" style="width: 50;"  (tap)=cutImg(5)></Button>
+    <AbsoluteLayout row="1" col="0" colSpan="3" class="mask" clipToBounds="true">
+        <ListView row="*" col="*" [items]="faces"  >
+            <ng-template let-item="item" let-i="index">
+                <StackLayout class="slices">
+                    <Image  stretch="aspectFit" [src]="item.imageSrc"></Image>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+    </AbsoluteLayout>
 
 
-        <Button row="" col="0" text="Ex" style="width: 50;"  (tap)=exportImg()></Button>
+    <AbsoluteLayout row="2" col="0" class="rnd3" (tap)=cutImg(3)>
+        <Label text="SliceMe" class="slicetext" ></Label>
+        <Image src="~/app/images/play.png" class="sliceicon" ></Image>
+    </AbsoluteLayout>
+    <AbsoluteLayout row="2" col="1" class="rnd4" (tap)=cutImg(4)>
+        <Label text="SliceMe" class="slicetext" ></Label>
+        <Image src="~/app/images/play.png" class="sliceicon" ></Image>
+    </AbsoluteLayout>
+    <AbsoluteLayout row="2" col="2" class="rnd5" (tap)=cutImg(5)>
+        <Label text="SliceMe" class="slicetext" ></Label>
+        <Image src="~/app/images/play.png" class="sliceicon" ></Image>
+    </AbsoluteLayout>
+
+    <AbsoluteLayout row="1" col="0" colSpan="3" class="bottomwaves">
+    </AbsoluteLayout>
 
 </GridLayout>
