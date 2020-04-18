@@ -1,36 +1,31 @@
-<GridLayout class="page" rows="auto, *, 100" columns="*, *, *"
+<GridLayout class="page" rows="*, *, *" columns="*, *, *"
 			orientation="horizontal" horizontalAlignment="center" class="body" >
 
 	<Label text="FaceMe" col="1" (tap)="onButtonTap()"  class="FaceMe">
 	</Label>
 
-	<AbsoluteLayout row="2" col="3" class="morecamera" >
-		<Image src="~/app/images/reverse.png" (tap)="toggleTheCamera()" class="flipcamera" ></Image>
-		<!--<Button text="V" (tap)="onButtonTap()" class="videocamera"></Button>-->
+	<AbsoluteLayout row="1" col="0" colSpan="3" class="gradradius" >
 	</AbsoluteLayout>
 
-	<AbsoluteLayout row="2" col="0" class="moregallery" >
-		<Image src="~/app/images/gallery.png" (tap)="onButtonTap()" class="opengallery" ></Image>
+	<AbsoluteLayout row="1" col="0" colSpan="3"  class="gradradius2" >
 	</AbsoluteLayout>
 
-	<AbsoluteLayout col="0" class="menuplace">
-		<AbsoluteLayout text="M" (tap)="onButtonTap()" class="openmenu">
-			<Label class="wave_btn1" ></Label>
-			<Label class="wave_btn2"></Label>
-			<Label class="wave_btn3"></Label>
-		</AbsoluteLayout>
+	<AbsoluteLayout row="2" col="0" colSpan="3" class="bottomwaves" >
+	</AbsoluteLayout>
 
+	<AbsoluteLayout row="0" col="0" (tap)="onButtonTap()" class="openmenu">
+		<Label class="wave_btn1" ></Label>
+		<Label class="wave_btn2"></Label>
+		<Label class="wave_btn3"></Label>
+	</AbsoluteLayout>
+
+	<AbsoluteLayout  class="menuplace">
 	</AbsoluteLayout>
 
 	<Button row="2" col="1" (tap)="takePicFromCam()" class="mainbtn" shadow="2" >
 	</Button>
 
-    <AbsoluteLayout row="0" col="2" (tap)="create()" class="playbtn">
-		<Label text="PlayMe" class="playtext" ></Label>
-		<Image src="~/app/images/play.png" class="playicon" ></Image>
-    </AbsoluteLayout>
-
-	<AbsoluteLayout class="maincircle" row="1" col="0" colSpan="3">
+	<AbsoluteLayout class="maincircle" row="0" col="0" colSpan="3" rowSpan="2" >
 		<CameraPlus *ngIf='!isPreview'   debug="true" galleryPickerMode="single" showFlashIcon="false" showToggleIcon="false"
 					showCaptureIcon="false" showGalleryIcon="false" (loaded)="camLoaded($event)"
 					(toggleCameraEvent)="toggleCameraEvent($event)" (photoCapturedEvent)="photoCapturedEvent($event)"
@@ -38,7 +33,21 @@
 		</CameraPlus>
 	</AbsoluteLayout>
 
-	<ScrollView  row="1" col="0" rowSpan="2" colSpan="3" orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
+	<AbsoluteLayout row="1" col="3" class="morecamera" >
+		<Image src="~/app/images/reverse.png" (tap)="toggleTheCamera()" class="flipcamera" ></Image>
+		<!--<Button text="V" (tap)="onButtonTap()" class="videocamera"></Button>-->
+	</AbsoluteLayout>
+
+	<AbsoluteLayout row="1" col="0" class="moregallery" >
+		<Image src="~/app/images/gallery.png" (tap)="onButtonTap()" class="opengallery" ></Image>
+	</AbsoluteLayout>
+
+	<AbsoluteLayout row="0" col="2" (tap)="create()" class="playbtn">
+		<Label text="PlayMe" class="playtext" ></Label>
+		<Image src="~/app/images/play.png" class="playicon" ></Image>
+	</AbsoluteLayout>
+
+	<ScrollView row="1" col="0" colSpan="3" orientation="horizontal" scrollBarIndicatorVisible="true" class="peopleplace">
 		<StackLayout  (itemTap)="onItemTap($event)" orientation="horizontal" row="1" col="0" rowSpan="2" colSpan="3" >
 			<GridLayout *ngFor="let item of faces" rows="*" columns="*" class="swiper-slide" >
 				<Image [src]="item.imageSrc" stretch="aspectFit" class="swiper-img"></Image>
@@ -46,15 +55,6 @@
 			</GridLayout>
 		</StackLayout>
     </ScrollView>
-
-	<AbsoluteLayout row="1" col="0" colSpan="3" class="gradradius" >
-	</AbsoluteLayout>
-
-	<AbsoluteLayout row="1" col="0" colSpan="3" rowSpan="3" class="gradradius2" >
-	</AbsoluteLayout>
-
-	<AbsoluteLayout row="1" col="0" colSpan="3" class="bottomwaves">
-	</AbsoluteLayout>
 
 </GridLayout>
 <!--<AbsoluteLayout row="1" col="0" colSpan="3" class="wave_circle_container" >

@@ -2,67 +2,67 @@
 
 .FaceMe {margin-top:60;color:#cf0022;font-size:26;font-style:italic;font-weight:900;text-align:center;z-index:111;}
 
-.playbtn {border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-bottom:-170;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
+.playbtn {border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-top:3%;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
 .playicon {margin:15 10 20 30;width:62;height:52;}
 .playtext {transform: rotate(-18deg);color: #fff;font-size:20;text-align:center;width:100%;margin:60 0 0 0}
 
-.mainbtn {border-color:#f7f9f9;border-width:6;background: linear-gradient(0deg, #ff002a, #7b0015 );width:100;height:100;z-index:119;margin-bottom:25%;border-radius: 100%;box-shadow: 0 0 20 rgba(0,0,0,0.6);}
+.mainbtn {border-color:#f7f9f9;border-width:6;background: linear-gradient(0deg, #ff002a, #7b0015 );width:100;height:100;z-index:119;margin-bottom:5%;border-radius: 100%;box-shadow: 0 0 20 rgba(0,0,0,0.6);}
 
-.rnd3 {border-color:#f7f9f9;border-width:6;background: linear-gradient(0deg, #ff002a, #7b0015 );width:100;height:100;z-index:119;margin-bottom:25%;border-radius: 100%;box-shadow: 0 0 20 rgba(0,0,0,0.6);}
-.rnd4 {border-color:#f7f9f9;border-width:6;background: linear-gradient(0deg, #ff002a, #7b0015 );width:100;height:100;z-index:119;margin-bottom:25%;border-radius: 100%;box-shadow: 0 0 20 rgba(0,0,0,0.6);}
-.rnd5 {border-color:#f7f9f9;border-width:6;background: linear-gradient(0deg, #ff002a, #7b0015 );width:100;height:100;z-index:119;margin-bottom:25%;border-radius: 100%;box-shadow: 0 0 20 rgba(0,0,0,0.6);}
+.rnd3 {border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-top:3%;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
+.rnd4 {border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-top:3%;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
+.rnd5 {border-color:#fff;border-width:2;background: linear-gradient(45deg, #1fc8f0, #e60288 );width:120;height:120;position:relative;margin-top:3%;z-index:209;border-radius: 100%;box-shadow: 0 0 10 rgba(0,0,0,0.3);}
 
-.maincircle {z-index:4;background-color:#000;border-radius: 50%;width:340;height:400;position: relative;margin-top:-180}
+.maincircle {z-index:4;background-color:#000;border-radius: 25%;width:340;height:400;position: relative;margin-top:15%}
 
-.mask {z-index:4;background-color:#000;border-radius: 50%;width:340;height:400;position: relative;margin-top:-180}
+.mask {z-index:4;background-color:#000;border-radius: 25%;width:340;height:400;position: relative;margin-top:15%}
 .mask img {width:100%;margin:auto}
 
 .camerapreview {width:100%;height:100%;position:relative;z-index:222;border-radius:100%;background-color: transparent;overflow:hidden}
 
-.peopleplace {width:100%;z-index:9;height: 100;margin-top:17%;position: relative}
+.peopleplace {width:100%;z-index:9;height: 100;margin-top:40%;position: relative}
 .peopleplace .swiper-slide {position:relative;margin:0 5;background: #c1eaf2;width:100;height:100;border-color:#f7f9f9;border-width:1;border-radius: 100%;/*opacity: .8;float:left;*/}
-.peopleplace .swiper-img {width:100%;height:auto;border-radius: 100%;border-color:black;border-width:1;}
+.peopleplace .swiper-img {width:100%;height:auto;border-radius: 100%;}
 .peopleplace .swiper-btn {background: #bad0d5;padding:4;width:26;height:26;border-radius:100%;border-color:#ffffff;border-width:1;margin:0 -60 -60 0;}
 
-.morecamera {margin:0 -70 35% 0;background: #cfdadc;border-radius: 100% 0 0 100%;height: 60;width:70}
-.moregallery {margin:0 70 35% 0;background: #cfdadc;border-radius: 0 100% 100%0 0;height: 60;width:70}
+.morecamera {margin:60% 0 0 60;background: #cfdadc;border-radius: 100% 0 0 100%;height: 70;width:80}
+.moregallery {margin:60% 70 0 0;background: #cfdadc;border-radius: 0 100% 100%0 0;height: 70;width:80}
 
 .flipcamera {width: 50;margin:10 0 0 20}
 
 .opengallery {width: 34;margin:10 0 0 20}
 
-.openmenu {width: 60;height:60;margin:50 0 0 0;}
-.openmenu label {position: relative;width:100%;height:100%;}
-.openmenu .wave_btn2 {margin:-16 0 0 -20;transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%;background: linear-gradient(-45deg, #ff002a, #00ffff);background-size: 1000% 1000%;}
-.openmenu .wave_btn3 {margin:-21 0 0 -18;transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;background: linear-gradient(-45deg, #00d5ff, #9347c4);background-size: 1000% 1000%;}
-.openmenu .wave_btn1 {margin:-19 0 0 -14;transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;background: linear-gradient(-45deg, #9347c4, #a3001b);background-size: 1000% 1000%;}
+/*.menuplace {border-color:black;border-width:2;}*/
 
-.backbtn {width: 60;height:60;margin:50 0 0 60;}
-.backbtn label {position: relative;width:100%;height:100%;}
-.backbtn .wave_btn2 {margin:-16 0 0 0;transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%;background: linear-gradient(-45deg, #ff002a, #00ffff);background-size: 1000% 1000%;}
-.backbtn .wave_btn3 {margin:-21 0 0 0;transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;background: linear-gradient(-45deg, #00d5ff, #9347c4);background-size: 1000% 1000%;}
-.backbtn .wave_btn1 {margin:-19 0 0 0;transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;background: linear-gradient(-45deg, #9347c4, #a3001b);background-size: 1000% 1000%;}
+.openmenu {width: 70;height:70;margin:-90 0 0 -110;}
+.openmenu label {position: relative;width: 60;height:60;}
+.openmenu .wave_btn2 {margin:1 0 0 5;transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%;background: linear-gradient(-45deg, #ff002a, #00ffff);background-size: 1000% 1000%;}
+.openmenu .wave_btn3 {margin:5 0 0 1;transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;background: linear-gradient(-45deg, #00d5ff, #9347c4);background-size: 1000% 1000%;}
+.openmenu .wave_btn1 {margin:3 0 0 3;transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;background: linear-gradient(-45deg, #9347c4, #a3001b);background-size: 1000% 1000%;}
 
-.arrowicon {margin:5 0 0 5;width:37;z-index:2;position:relative;/*height:31;*/}
+.backbtn {width: 70;height:70;margin:-90 0 0 0;}
+.backbtn label {position: relative;width: 60;height:60;}
+.backbtn .wave_btn2 {margin:5 0 0 3;transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%;background: linear-gradient(-45deg, #ff002a, #00ffff);background-size: 1000% 1000%;}
+.backbtn .wave_btn3 {margin:3 0 0 1;transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;background: linear-gradient(-45deg, #00d5ff, #9347c4);background-size: 1000% 1000%;}
+.backbtn .wave_btn1 {margin:1 0 0 5;transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;background: linear-gradient(-45deg, #9347c4, #a3001b);background-size: 1000% 1000%;}
 
-.sharebtn {width: 120;height:120;margin:0 0 0 0;}
-.sharebtn label {position: relative;width:100%;height:100%;}
-.sharebtn .wave_btn2 {margin:-16 0 0 0;transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%;background: linear-gradient(-45deg, #ff002a, #00ffff);background-size: 1000% 1000%;}
-.sharebtn .wave_btn3 {margin:-21 0 0 0;transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;background: linear-gradient(-45deg, #00d5ff, #9347c4);background-size: 1000% 1000%;}
-.sharebtn .wave_btn1 {margin:-19 0 0 0;transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;background: linear-gradient(-45deg, #9347c4, #a3001b);background-size: 1000% 1000%;}
+.arrowicon {margin:15 0 0 15;width:37;z-index:2;position:relative;/*height:31;*/}
 
-.shareicon {margin:5 0 0 5;width:53;z-index:2;position:relative;opacity:1}
+.sharebtn {width: 120;height:120;margin:-90 -110 0 0;}
+.sharebtn label {position: relative;width:90;height:90;}
+.sharebtn .wave_btn2 {margin:5 5 0 1;transform: rotate(100deg);z-index:2;opacity:.3;border-radius: 150% 100% 110% 100%;background: linear-gradient(-45deg, #ff002a, #00ffff);background-size: 1000% 1000%;}
+.sharebtn .wave_btn3 {margin:1 1 0 5;transform: rotate(190deg);z-index:3;opacity:.3;border-radius: 130% 120% 120% 120%;background: linear-gradient(-45deg, #00d5ff, #9347c4);background-size: 1000% 1000%;}
+.sharebtn .wave_btn1 {margin:3 3 0 10;transform: rotate(50deg);z-index:1;opacity:.3;border-radius: 200% 150% 140% 150%;background: linear-gradient(-45deg, #9347c4, #a3001b);background-size: 1000% 1000%;}
+
+.shareicon {margin:15 0 0 15;width:53;z-index:2;position:relative;opacity:1}
 
 .outerline {width:100%;height:100%;z-index:333;border-color:white;border-width:5;}
 
 .mainbefore {content: "";display: block;position: absolute;left: -300;top: 0;width: 450;height: 830;background: #ffffff\.5;background: rgba(255, 255, 255, 0.05);-moz-transform: skew(-30deg, 0deg);-webkit-transform: skew(-30deg, 0deg);-o-transform: skew(-30deg, 0deg);-ms-transform: skew(-30deg, 0deg);transform: skew(-30deg, 0deg);}
 
-.bottomwaves {background: url(~/app/images/bottomwide.png) ;background-repeat: no-repeat;background-size: cover;height:300;width:100%;margin:60% 0 0 0;}
-
-
+.bottomwaves {background: url(~/app/images/bottomwide.png) ;background-position:center bottom;background-repeat: no-repeat;background-size: contain;height:100%;width:100%;/*border-color:red;border-width:1;*/}
 
 .gradradius {width: 100%;height: 350;margin-top:60%;overflow: hidden;background: linear-gradient(-180deg, #ffffff, #bad0d5);position:relative;}
-.gradradius2 {border-radius: 400% ;background:#bad0d5;width: 100%;height: 200;margin-top:0%}
+/*.gradradius2 {border-radius: 100% ;background:#bad0d5;width: 100%;height: 200;margin-top:20%}*/
 
 .videocamera {border-radius:100%;background: #ccc;border-color:#f7f9f9;border-width:1;width: 40;height:40;margin:8 0 0 0;}
 

@@ -1,32 +1,38 @@
-<GridLayout class="page" rows="auto, *, 100" columns="*, *, *"
+<GridLayout class="page" rows="*, *, *" columns="*, *, *"
             orientation="horizontal" horizontalAlignment="center" class="body" >
+    
+    <GridLayout columns="*, *, *" colSpan="3" >
+        <AbsoluteLayout row="0" col="0" (tap)="onButtonTap()" class="openmenu">
+            <Label class="wave_btn1" ></Label>
+            <Label class="wave_btn2"></Label>
+            <Label class="wave_btn3"></Label>
+        </AbsoluteLayout>
 
-<AbsoluteLayout col="0" class="menuplace">
-    <AbsoluteLayout  (tap)="onButtonTap()" class="openmenu">
-        <Label class="wave_btn1" ></Label>
-        <Label class="wave_btn2"></Label>
-        <Label class="wave_btn3"></Label>
+        <AbsoluteLayout row="0" col="0" (tap)="backToFaces()"  class="backbtn" >
+            <Label class="wave_btn1" ></Label>
+            <Label class="wave_btn2"></Label>
+            <Label class="wave_btn3"></Label>
+            <Image src="~/app/images/arrow.png" class="arrowicon" ></Image>
+        </AbsoluteLayout>
+
+        <AbsoluteLayout row="0" col="2" (tap)=exportImg() class="sharebtn" >
+            <Label class="wave_btn1" ></Label>
+            <Label class="wave_btn2"></Label>
+            <Label class="wave_btn3"></Label>
+            <Image src="~/app/images/share.png" class="shareicon" ></Image>
+        </AbsoluteLayout>
+    </GridLayout>
+
+    <AbsoluteLayout  class="menuplace">
     </AbsoluteLayout>
-</AbsoluteLayout>
 
-<Label text="FaceMe" col="1" (tap)="onButtonTap()"  class="FaceMe">
-</Label>
+    <Label text="FaceMe" row="0" col="1" (tap)="onButtonTap()"  class="FaceMe">
+    </Label>
 
-<AbsoluteLayout (tap)="backToFaces()"  class="backbtn" >
-    <Label class="wave_btn1" ></Label>
-    <Label class="wave_btn2"></Label>
-    <Label class="wave_btn3"></Label>
-    <Image src="~/app/images/arrow.png" class="arrowicon" ></Image>
-</AbsoluteLayout>
-
-    <AbsoluteLayout (tap)=exportImg() class="sharebtn" horizontalAlignment="right">
-        <Label class="wave_btn1" ></Label>
-        <Label class="wave_btn2"></Label>
-        <Label class="wave_btn3"></Label>
-        <Image src="~/app/images/share.png" class="shareicon" ></Image>
+    <AbsoluteLayout row="2" col="0" colSpan="3" class="bottomwaves" >
     </AbsoluteLayout>
 
-    <AbsoluteLayout row="1" col="0" colSpan="3" class="mask" clipToBounds="true">
+    <AbsoluteLayout row="0" col="0" colSpan="3" rowSpan="2" class="mask" clipToBounds="true" borderwidth="1" bordercolor="red">
         <ListView row="*" col="*" [items]="faces"  >
             <ng-template let-item="item" let-i="index">
                 <StackLayout class="slices">
@@ -50,7 +56,5 @@
         <Image src="~/app/images/play.png" class="sliceicon" ></Image>
     </AbsoluteLayout>
 
-    <AbsoluteLayout row="1" col="0" colSpan="3" class="bottomwaves">
-    </AbsoluteLayout>
 
 </GridLayout>
