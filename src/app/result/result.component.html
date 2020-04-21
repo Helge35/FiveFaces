@@ -30,7 +30,7 @@
         <Image src="~/app/images/share.png" class="shareicon" ></Image>
     </AbsoluteLayout>
 
-    <AbsoluteLayout row="0" col="0" colSpan="3" rowSpan="2" class="maskplace" clipToBounds="true">
+    <AbsoluteLayout row="0" col="0" colSpan="3" rowSpan="2" class="mask" clipToBounds="true">
         <ListView row="1" [items]="faces" separatorColor="transparent" class="mask fiveslices" >
             <ng-template let-item="item" let-i="index">
                 <StackLayout orientation="horizontal" class="slice1">
@@ -44,7 +44,7 @@
         <Label text="SliceMe" class="slicetext" ></Label>
         <Image src="~/app/images/3.png" class="sliceicon" ></Image>
     </AbsoluteLayout>
-    <AbsoluteLayout row="2" col="1" colSpan="2" class="rnd5" (tap)=cutImg(5)>
+    <AbsoluteLayout row="2" col="1" colSpan="3" class="rnd5" (tap)=cutImg(5)>
         <Label text="SliceMe" class="slicetext" ></Label>
         <Image src="~/app/images/5.png" class="sliceicon" ></Image>
     </AbsoluteLayout>
