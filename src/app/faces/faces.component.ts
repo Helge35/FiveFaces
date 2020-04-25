@@ -8,6 +8,8 @@ import { CameraPlus } from '@nstudio/nativescript-camera-plus';
 import { FacesService } from "../shared/services/faces.service";
 import { Face } from '../shared/models/face';
 
+import { screen } from "tns-core-modules/platform/platform"
+
 
 @Component({
   selector: 'ns-faces',
@@ -39,10 +41,14 @@ export class FacesComponent implements OnInit {
     //  this.cam.toggleFlash();
     // }
 
-    const cameraSide = this.cam.getCurrentCamera();
+    var cameraSide = this.cam.getCurrentCamera();
+
     if (cameraSide == "rear") {
-      this.cam.toggleCamera();
+      if (!this.faceService.isCameraFront) {
+        this.toggleTheCamera();
+      }
     }
+
     console.log('***** cam loaded end *****');
   }
 
@@ -56,7 +62,6 @@ export class FacesComponent implements OnInit {
     this.loadImage(e.data as ImageAsset);
   }
 
-
   public toggleFlashOnCam(): void {
     this.cam.toggleFlash();
   }
@@ -68,6 +73,7 @@ export class FacesComponent implements OnInit {
 
   public toggleTheCamera(): void {
     this.cam.toggleCamera();
+    this.faceService.isCameraFront = !this.faceService.isCameraFront;
   }
 
   public openCamPlusLibrary(): void {
@@ -75,7 +81,10 @@ export class FacesComponent implements OnInit {
   }
 
   public takePicFromCam(): void {
-    this.cam.takePicture({ saveToGallery: true });
+    var imgWidht = screen.mainScreen.widthDIPs /1.9;
+    var imgHeigth = screen.mainScreen.heightDIPs / 1.9;
+    
+    this.cam.takePicture({ saveToGallery: true, width: imgWidht, height: imgHeigth });
   }
 
   private loadImage(imageAsset: ImageAsset): void {
@@ -84,7 +93,6 @@ export class FacesComponent implements OnInit {
         imgSrc => {
           if (imgSrc) {
             this.zone.run(() => {
-
               let ind: number = 1;
               if (this.faces.length > 0) {
                 ind = Math.max.apply(Math, this.faces.map(function (o) { return o.id; })) + 1;
